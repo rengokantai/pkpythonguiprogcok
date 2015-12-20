@@ -1,6 +1,6 @@
 __author__ = 'Hernan Y.Ke'
 import tkinter as tk
-from tkinter import ttk,scrolledtext
+from tkinter import ttk,scrolledtext, Menu
 
 win = tk.Tk()
 win.title("test")
@@ -54,4 +54,18 @@ ttk.Label(labelFrame,text="1").grid(column=0,row=0)
 ttk.Label(labelFrame,text="2").grid(column=1,row=0)
 for child in labelFrame.winfo_children():
     child.grid_configure(padx=24,pady=3)
+
+#add menubar
+menubar = Menu(win)
+win.config(menu=menubar)
+
+filemenu = Menu(menubar, tearoff=0)
+filemenu.add_command(label="new")
+filemenu.add_separator()
+filemenu.add_command(label="exit", command=quit)
+menubar.add_cascade(label="File",menu=filemenu)
+def quit():
+    win.quit()
+    win.destroy()
+    exit()
 win.mainloop()
