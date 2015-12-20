@@ -18,12 +18,29 @@ def clickMe():
     action.configure(state="disabled")
 
 number = tk.StringVar()
-combobox = ttk.Combobox(win,width=12, textvariable=number,state='readonly')
+combobox = ttk.Combobox(win,width=12, textvariable=number,state='readonly') # belongs to ttk
 combobox['values']=(1,2,3,4)
 combobox.grid(column=0,row=4)
 combobox.current(0)
 
+chvar1 = tk.IntVar()
+chkbox1 = tk.Checkbutton(win,text="disabled",variable=chvar1,state="disabled") # checkbox belongs to tk
+chkbox1.select()
+chkbox1.grid(column=0,row=5)
+
 
 action = ttk.Button(win, text="click",command=clickMe)
 action.grid(column=0,row=1)
+
+#radio
+radVar = tk.IntVar()
+def radCall():
+    radCol =radVar.get()
+    if radCol == 1: win.configure(background="red")
+    elif radCol == 2: win.configure(background="blue")
+
+radio1 = tk.Radiobutton(win, text="option1",variable=radVar,value=1,command=radCall)
+radio1.grid(column=0,row=6)
+radio2 = tk.Radiobutton(win, text="option2",variable=radVar,value=2,command=radCall)
+radio2.grid(column=1,row=6)
 win.mainloop()
