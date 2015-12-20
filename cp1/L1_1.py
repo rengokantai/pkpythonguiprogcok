@@ -1,6 +1,7 @@
 __author__ = 'Hernan Y.Ke'
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk,scrolledtext
+
 win = tk.Tk()
 win.title("test")
 #win.resizable(0,0) //not resizable
@@ -43,4 +44,7 @@ radio1 = tk.Radiobutton(win, text="option1",variable=radVar,value=1,command=radC
 radio1.grid(column=0,row=6)
 radio2 = tk.Radiobutton(win, text="option2",variable=radVar,value=2,command=radCall)
 radio2.grid(column=1,row=6)
+
+scr = scrolledtext.ScrolledText(win,width=10,height=20,wrap=tk.WORD)
+scr.grid(column=0,columnspan=3)
 win.mainloop()
