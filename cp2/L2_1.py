@@ -1,5 +1,4 @@
 __author__ = 'Hernan Y.Ke'
-__author__ = 'Hernan Y.Ke'
 import tkinter as tk
 from tkinter import ttk,scrolledtext
 
@@ -47,10 +46,12 @@ radio2 = tk.Radiobutton(win, text="option2",variable=radVar,value=2,command=radC
 radio2.grid(column=1,row=6)
 
 scr = scrolledtext.ScrolledText(win,width=10,height=20,wrap=tk.WORD)
-scr.grid(column=0,columnspan=3)
+scr.grid(column=0,columnspan=3,sticky="WE")
 
 labelFrame = ttk.LabelFrame(win, text='Frame')
 labelFrame.grid(column=0,row=8,padx=20,pady=40)
 ttk.Label(labelFrame,text="1").grid(column=0,row=0)
 ttk.Label(labelFrame,text="2").grid(column=1,row=0)
+for child in labelFrame.winfo_children():
+    child.grid_configure(padx=24,pady=3)
 win.mainloop()
