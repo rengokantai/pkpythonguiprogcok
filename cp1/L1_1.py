@@ -8,12 +8,12 @@ label = ttk.Label(win, text="a")
 label.grid(column=0,row=0)
 
 textLabel = tk.StringVar()
-name = ttk.Entry(win,widget=12, textvariable=textLabel)
-name.grid(column=0,row=3)
+name = ttk.Entry(win,width=12, textvariable=textLabel)
+name.grid(column=0,row=2)
 
 def clickMe():
     action.configure(text="clicked")
-    label.configure(text="red")
+    label.configure(text=name.get())
 
 
 
